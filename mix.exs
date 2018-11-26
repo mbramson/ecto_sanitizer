@@ -11,7 +11,7 @@ defmodule EctoSanitizer.MixProject do
       start_permanent: Mix.env == :prod,
       description: description(),
       name: "EctoSanitizer",
-      source_url: "https://github.com/mbramson/ecto_sanitizer"
+      source_url: "https://github.com/mbramson/ecto_sanitizer",
       package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -30,6 +30,7 @@ defmodule EctoSanitizer.MixProject do
   defp deps do
     [
       {:ecto, ">= 2.0.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev},
       {:html_sanitize_ex, "~> 1.3.0"},
       {:mix_test_watch, "~> 0.6", only: :dev, runtime: false}
     ]
