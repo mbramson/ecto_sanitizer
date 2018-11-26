@@ -1,18 +1,29 @@
 defmodule EctoSanitizer do
   @moduledoc """
-  Documentation for EctoSanitizer.
+  Provides functions for sanitizing `Ecto.Changeset` inputs.
   """
 
-  @doc """
-  Hello world.
+  def sanitize_all_strings(%Ecto.Changeset{} = changeset, opts \\ []) do
+    blacklisted_fields = Keyword.get(opts, :except, [])
 
-  ## Examples
+    changes = changeset.changes
+    types = changeset.types
 
-      iex> EctoSanitizer.hello()
-      :world
+    sanitized_changes =
+      Enum.into(changeset.changes, %{}, fn change ->
+        strip_html_from_change(change, blacklisted_fields, types)
+      end)
 
-  """
-  def hello do
-    :world
+    %{changeset | changes: sanitized_changes}
   end
+
+  defp strip_html_from_change({field, value}, blacklisted_fields, types) when is_binary(value) do
+    if field in blacklisted_fields do
+      {field, value}
+    else
+      {field, HtmlSanitizeEx.strip_tags(value)}
+    end
+  end
+
+  defp strip_html_from_change(change, _, _), do: change
 end
