@@ -6,7 +6,7 @@ defmodule EctoSanitizer.MixProject do
       app: :ecto_sanitizer,
       version: "0.1.0",
       elixir: "~> 1.7",
-      elixirc_paths: elixirc_paths(Mix.env),
+      elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -18,14 +18,14 @@ defmodule EctoSanitizer.MixProject do
     ]
   end
 
-
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 
   defp deps do
     [
       {:ecto, ">= 2.0.0"},
-      {:html_sanitize_ex, "~> 1.3.0"}
+      {:html_sanitize_ex, "~> 1.3.0"},
+      {:mix_test_watch, "~> 0.6", only: :dev, runtime: false}
     ]
   end
 end
