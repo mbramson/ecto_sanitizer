@@ -1,8 +1,5 @@
 defmodule EctoSanitizerTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest EctoSanitizer
 
-  test "greets the world" do
-    assert EctoSanitizer.hello() == :world
-  end
 end

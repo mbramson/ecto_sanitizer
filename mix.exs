@@ -19,6 +19,7 @@ defmodule EctoSanitizer.MixProject do
 
   defp deps do
     [
+      {:ecto, ">= 2.0.0", only: :test},
       {:html_sanitize_ex, "~> 1.3.0"}
     ]
   end
