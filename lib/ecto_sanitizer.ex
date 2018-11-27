@@ -1,6 +1,6 @@
 defmodule EctoSanitizer do
   @moduledoc """
-  Provides functions for sanitizing `Ecto.Changeset` inputs.
+  Provides functions for sanitizing `Ecto.Changeset` fields.
   """
 
   @doc """
