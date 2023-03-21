@@ -7,8 +7,8 @@ defmodule EctoSanitizer.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       description: description(),
       name: "EctoSanitizer",
       source_url: "https://github.com/mbramson/ecto_sanitizer",
@@ -31,7 +31,7 @@ defmodule EctoSanitizer.MixProject do
     [
       {:ecto, ">= 2.0.0"},
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:html_sanitize_ex, "~> 1.3.0"},
+      {:html_sanitize_ex, "~> 1.4"},
       {:mix_test_watch, "~> 0.6", only: :dev, runtime: false}
     ]
   end
