@@ -31,8 +31,8 @@ defmodule EctoSanitizer.MixProject do
     [
       {:ecto, ">= 2.0.0"},
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:html_sanitize_ex, "~> 1.3.0"},
-      {:mix_test_watch, "~> 0.6", only: :dev, runtime: false}
+      {:html_sanitize_ex, "~> 1.4"},
+      {:mix_test_watch, ">= 0.6.0", only: :dev, runtime: false}
     ]
   end
 
