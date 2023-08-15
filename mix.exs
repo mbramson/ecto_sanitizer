@@ -4,11 +4,11 @@ defmodule EctoSanitizer.MixProject do
   def project do
     [
       app: :ecto_sanitizer,
-      version: "0.1.0",
+      version: "1.0.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       description: description(),
       name: "EctoSanitizer",
       source_url: "https://github.com/mbramson/ecto_sanitizer",
